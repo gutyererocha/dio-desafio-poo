@@ -66,4 +66,37 @@ public class Bootcamp {
     public int hashCode() {
         return Objects.hash(nome, descricao, dataInicial, dataFinal, devsInscritos, conteudos);
     }
-}
+
+        private int maxInscritos;
+        private int cargaHoraria;
+
+        public int getMaxInscritos() {
+            return maxInscritos;
+        }
+
+        public void setMaxInscritos(int maxInscritos) {
+            this.maxInscritos = maxInscritos;
+        }
+
+        public int getCargaHoraria() {
+            return cargaHoraria;
+        }
+
+        public void setCargaHoraria(int cargaHoraria) {
+            this.cargaHoraria = cargaHoraria;
+        }
+
+        public boolean inscreverDev(Dev dev) {
+            if (devsInscritos.size() < maxInscritos) {
+                return devsInscritos.add(dev);
+            } else {
+                return false;
+            }
+        }
+
+        public boolean adicionarConteudo(Conteudo conteudo) {
+            return conteudos.add(conteudo);
+        }
+    }
+
+

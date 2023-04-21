@@ -10,6 +10,14 @@ public class Dev {
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
+    public Dev(String nome) {
+        this.nome = nome;
+    }
+
+    public Dev() {
+
+    }
+
     public void inscreverBootcamp(Bootcamp bootcamp) {
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
         bootcamp.getDevsInscritos().add(this);
@@ -51,6 +59,24 @@ public class Dev {
 
     public void setConteudosConcluidos(Set<Conteudo> conteudosConcluidos) {
         this.conteudosConcluidos = conteudosConcluidos;
+    }
+
+    public void exibirConteudosInscritos() {
+        System.out.println("Conteúdos inscritos por " + nome + ":");
+        for (Conteudo conteudo : conteudosInscritos) {
+            System.out.println(conteudo.getTitulo());
+        }
+    }
+
+    public void exibirConteudosConcluidos() {
+        System.out.println("Conteúdos concluídos por " + nome + ":");
+        for (Conteudo conteudo : conteudosConcluidos) {
+            System.out.println(conteudo.getTitulo());
+        }
+    }
+
+    public boolean todosConteudosConcluidos() {
+        return conteudosInscritos.isEmpty();
     }
 
     @Override
